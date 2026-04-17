@@ -214,7 +214,7 @@ const HERO_IMAGES = {
 // ===================================================================
 const AppContext = createContext();
 
-function PageHero({ title, subtitle, image, gradient }) {
+function PageHero({ title, subtitle, image, gradient, subtitleWide }) {
   const g = gradient || `linear-gradient(135deg, ${T.bg} 0%, hsl(20,30%,18%) 50%, hsl(15,40%,22%) 100%)`;
   const [imgOk, setImgOk] = useState(true);
   return (
@@ -227,7 +227,7 @@ function PageHero({ title, subtitle, image, gradient }) {
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.45) 100%)" }} />
       <div style={{ position: "relative", zIndex: 1, color: "#fff" }}>
         <h1 style={{ fontFamily: DF, fontSize: "3.5rem", margin: "0 0 6px", lineHeight: 1.05, fontWeight: 700 }}>{title}</h1>
-        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", margin: 0, lineHeight: 1.4, maxWidth: "85%" }}>{subtitle}</p>}
+        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", margin: 0, lineHeight: 1.4, maxWidth: subtitleWide ? "95%" : "85%" }}>{subtitle}</p>}
       </div>
     </div>
   );
@@ -406,7 +406,7 @@ function HomePage() {
   const upcoming = CLASSES_TODAY.filter(c => { const [h, m] = c.time.split(":").map(Number); return h * 60 + m > currentMin; });
 
   return (<div>
-    <PageHero title={<>{STUDIO_CONFIG.heroLine1} <span style={{ color: T.accent }}>{STUDIO_CONFIG.heroLine2}</span></>} subtitle={STUDIO_CONFIG.description} image={HERO_IMAGES.home} />
+    <PageHero title={<>{STUDIO_CONFIG.heroLine1}<br /><span style={{ color: T.accent }}>{STUDIO_CONFIG.heroLine2}</span></>} subtitle={STUDIO_CONFIG.description} image={HERO_IMAGES.home} subtitleWide />
 
     <section style={{ padding: "20px 16px 0" }}>
       <SectionHeader title="Today's Practice" linkText="All Classes" linkPage="classes" />
