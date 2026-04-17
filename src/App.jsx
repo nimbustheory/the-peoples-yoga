@@ -727,8 +727,8 @@ export default function App({ onEnterAdmin, startInAdmin, onExitAdmin }) {
   const openReservation = useCallback((d) => setReservationClass(d), []);
   const celebrateFeed = useCallback((id) => setFeedCelebrations(p => ({ ...p, [id]: (p[id] || 0) + 1 })), []);
 
-  const mainTabs = [{ id: "home", label: "Home", icon: Home }, { id: "schedule", label: "Schedule", icon: CalendarDays }, { id: "practice", label: "Practice", icon: TrendingUp }, { id: "more", label: "More", icon: Menu }];
-  const moreItems = [{ id: "classes", label: "Classes", icon: Calendar }, { id: "teachers", label: "Teachers", icon: Users }, { id: "membership", label: "Rates", icon: CreditCard }, { id: "events", label: "Events", icon: PartyPopper }, { id: "community", label: "Community", icon: Heart }, { id: "rewards", label: "Karma Points", icon: Gift }];
+  const mainTabs = [{ id: "home", label: "Home", icon: Home }, { id: "schedule", label: "Schedule", icon: CalendarDays }, { id: "community", label: "Community", icon: Heart }, { id: "practice", label: "Practice", icon: TrendingUp }, { id: "more", label: "More", icon: Menu }];
+  const moreItems = [{ id: "classes", label: "Classes", icon: Calendar }, { id: "teachers", label: "Teachers", icon: Users }, { id: "membership", label: "Rates", icon: CreditCard }, { id: "events", label: "Events", icon: PartyPopper }, { id: "rewards", label: "Karma Points", icon: Gift }];
   const adminTabs = [{ id: "admin-dashboard", label: "Dashboard", icon: LayoutDashboard }, { id: "admin-members", label: "Members", icon: Users }, { id: "admin-schedule", label: "Schedule", icon: CalendarDays }, { id: "admin-teachers", label: "Teachers", icon: UserCheck }, { id: "admin-events", label: "Events", icon: PartyPopper }, { id: "admin-pricing", label: "Pricing", icon: CreditCard }, { id: "admin-comms", label: "Broadcast", icon: Megaphone }, { id: "admin-settings", label: "Settings", icon: Settings }];
   const isMoreActive = moreItems.some(item => item.id === page);
 
